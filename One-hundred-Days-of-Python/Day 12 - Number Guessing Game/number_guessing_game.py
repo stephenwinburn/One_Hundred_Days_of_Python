@@ -37,14 +37,17 @@ play_again = 'y'
 
 while play_again == 'y':
     number_of_guesses = difficulty()
+    print(f"You have {number_of_guesses} to guess my number.")
         
-    number_i_thought_of = random.randint(1,100)
+    number_i_thought_of = random.randint(1,101)
     
     while number_of_guesses > 0:
         guess = int(input("Make a guess: "))
         number_of_guesses = evaluate_guess(guess,
                                            number_i_thought_of,
                                            number_of_guesses)
+        print(f"You have {number_of_guesses} guesses remaining.")
+        
     if number_of_guesses == -1:
         print(f"You've guessed the number I was thinking of, {number_i_thought_of}, correctly")
         
