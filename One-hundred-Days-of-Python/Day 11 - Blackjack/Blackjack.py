@@ -89,6 +89,10 @@ def play_blackjack(play_a_game = 'n'):
         dealer_hand = deal_hand()         
         print(f"First card of dealer hand: {dealer_hand[0]} \n")
         
+        if score_hand(dealer_hand) == 21 and 'A' in dealer_hand:
+            print(f"BLACKJACK! The dealer wins with the hand {dealer_hand}.")
+            play_blackjack(input("\nWould you like to play another game of Blackjack? Type 'y' or 'n': "))
+        
         (hit_or_stay(player_hand))
         
         if score_hand(player_hand) < 21:
