@@ -48,7 +48,7 @@ def tally_result(continue_result,op_call):
             op_call = operand_dict[key](f_number,s_number)
             print(f"{float(f_number)} {operation} {float(s_number)} = {op_call}\n")
     
-    continue_result = input("Please enter 'yes' or 'no' to indicate if you would like to continue calcuating with your prior result.\n Enter 'exit' to quit. ")
+    continue_result = input("Please enter 'yes' or 'no' to indicate if you would like to continue calcuating with your prior result.\nEnter 'exit' to quit. ")
     if continue_result == 'yes':
         tally_result(continue_result,op_call)  
     elif continue_result == 'no':

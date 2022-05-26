@@ -7,6 +7,7 @@ Created on Wed May 25 11:22:51 2022
 
 import Blackjack_art
 import random
+from IPython import get_ipython
 
 card_value_dict = {'A':11,
                    'A1':1,
@@ -53,7 +54,7 @@ def bust(hand):
         print(f"Your hand, {hand}, has a total score of {score_hand(hand)}.")
         hit_or_stay(hand)
     else:
-        print(f"Your hand {hand} has a total of {score_hand(hand)}. You busted.")
+        print(f"Your hand {hand} has a total of {score_hand(hand)}. You busted. Dealer wins.")
         play_blackjack(input("Would you like to play a game of Blackjack? Type 'y' or 'n': "))
         
     return hand
@@ -83,19 +84,17 @@ def play_blackjack(play_a_game = 'n'):
         print(f"Your hand: {player_hand} \n")    
         
         if score_hand(player_hand) == 21 and 'A' in player_hand:
-            print(f"BLACKJACK! You win with the hand {player_hand}.")
-            play_blackjack(input("\nWould you like to play another game of Blackjack? Type 'y' or 'n': "))
+            return print(f"BLACKJACK! You win with the hand {player_hand}.")
         
         dealer_hand = deal_hand()         
         print(f"First card of dealer hand: {dealer_hand[0]} \n")
         
         if score_hand(dealer_hand) == 21 and 'A' in dealer_hand:
-            print(f"BLACKJACK! The dealer wins with the hand {dealer_hand}.")
-            play_blackjack(input("\nWould you like to play another game of Blackjack? Type 'y' or 'n': "))
+            return print(f"BLACKJACK! The dealer wins with the hand {dealer_hand}.")
         
         (hit_or_stay(player_hand))
         
-        if score_hand(player_hand) < 21:
+        if score_hand(player_hand) < 22:
             while score_hand(dealer_hand) <= 16:
                 deal_card(dealer_hand)
                 print("Dealer took a card.")
@@ -103,19 +102,19 @@ def play_blackjack(play_a_game = 'n'):
                     bust(dealer_hand)
                 if score_hand(dealer_hand) > 21 and 'A' not in dealer_hand:
                     print("Dealer busts. You win!")
-                    play_blackjack(input("Would you like to play a game of Blackjack? Type 'y' or 'n': "))
         
         if score_hand(dealer_hand) < score_hand(player_hand) < 22:
             print(f"You win with score {score_hand(player_hand)} and cards {player_hand}!")
-            print(f"The dealer score was {score_hand(dealer_hand)} on the hand {dealer_hand}.")                         
+            print(f"The dealer score was {score_hand(dealer_hand)} on the hand {dealer_hand}.")                        
         elif score_hand(player_hand) < score_hand(dealer_hand) < 22:
             print(f"Dealer wins with score {score_hand(dealer_hand)} and cards {dealer_hand}!")
-        else:
-            print("It looks like a draw to me.")
+        elif score_hand(dealer_hand) == score_hand(player_hand):
+            print(f"It looks like a draw to me.")
             print(f"The dealer score was {score_hand(dealer_hand)} on the hand {dealer_hand}.")
+        else:
+            pass
         
-    play_blackjack(input("\nWould you like to play another game of Blackjack? Type 'y' or 'n': "))
-    
+    play_blackjack(input("\nWould you like to play another game of Blackjack? Type 'y' or 'n': "))    
 
 print(Blackjack_art.blackjack_text)
   

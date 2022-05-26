@@ -57,7 +57,9 @@ for i in range(1,total_characters+1):
             characters_used += 1
         
     
-
+# Note that we could have done this easier by getting a full
+# complement of each type of character first and then using
+# random.shuffle(lists_of_stuff) to get random ordering.
 
 
 
