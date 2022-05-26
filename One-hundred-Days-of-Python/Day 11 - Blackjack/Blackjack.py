@@ -96,7 +96,7 @@ def play_blackjack(play_a_game = 'n'):
         (hit_or_stay(player_hand))
         
         if score_hand(player_hand) < 21:
-            while score_hand(dealer_hand) <= 12:
+            while score_hand(dealer_hand) <= 16:
                 deal_card(dealer_hand)
                 print("Dealer took a card.")
                 if score_hand(dealer_hand) > 21 and 'A' in dealer_hand:
