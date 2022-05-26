@@ -80,7 +80,11 @@ def play_blackjack(play_a_game = 'n'):
     
     else:
         player_hand = deal_hand()   
-        print(f"Your hand: {player_hand} \n")         
+        print(f"Your hand: {player_hand} \n")    
+        
+        if score_hand(player_hand) == 21 and 'A' in player_hand:
+            print(f"BLACKJACK! You win with the hand {player_hand}.")
+            play_blackjack(input("\nWould you like to play another game of Blackjack? Type 'y' or 'n': "))
         
         dealer_hand = deal_hand()         
         print(f"First card of dealer hand: {dealer_hand[0]} \n")
