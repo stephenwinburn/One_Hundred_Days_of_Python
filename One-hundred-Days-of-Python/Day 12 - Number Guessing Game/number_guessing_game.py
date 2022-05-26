@@ -38,7 +38,7 @@ play_again = 'y'
 while play_again == 'y':
     number_of_guesses = difficulty()
         
-    number_i_thought_of = random.randint(1,101)
+    number_i_thought_of = random.randint(1,100)
     
     while number_of_guesses > 0:
         guess = int(input("Make a guess: "))
