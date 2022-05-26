@@ -20,6 +20,15 @@ def evaluate_guess(guess,number_i_thought_of,number_of_gueses):
         return decrement_guesses(number_of_guesses)
     else: 
         return -1
+    
+def difficulty():
+    if input("Choose a difficulty level. Type 'easy' or 'hard': ") == 'easy':
+        number_of_guesses = 10
+    else:
+        number_of_guesses = 5
+        
+    return number_of_guesses
+    
 
 print("Welcome to the Number Guessing Game!")
 print("I'm thinking of a number between 1 and 100.")
@@ -27,10 +36,7 @@ print("I'm thinking of a number between 1 and 100.")
 play_again = 'y'
 
 while play_again == 'y':
-    if input("Choose a difficulty level. Type 'easy' or 'hard': ") == 'easy':
-        number_of_guesses = 10
-    else:
-        number_of_guesses = 5
+    number_of_guesses = difficulty()
         
     number_i_thought_of = random.randint(1,101)
     
