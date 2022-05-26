@@ -80,6 +80,10 @@ def play_blackjack(play_a_game = 'n'):
         return print("Thank you for playing Blackjack with me.!")
     
     else:
+        get_ipython().magic('clear')
+        
+        print(Blackjack_art.blackjack_text)
+        
         player_hand = deal_hand()   
         print(f"Your hand: {player_hand} \n")    
         
@@ -115,6 +119,7 @@ def play_blackjack(play_a_game = 'n'):
             pass
         
     play_blackjack(input("\nWould you like to play another game of Blackjack? Type 'y' or 'n': "))    
+    
 
 print(Blackjack_art.blackjack_text)
   
