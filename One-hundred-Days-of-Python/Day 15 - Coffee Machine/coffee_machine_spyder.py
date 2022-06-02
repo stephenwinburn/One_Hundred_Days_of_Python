@@ -130,7 +130,7 @@ def process_drink_order(drink):
         drink_cost = MENU[drink]['cost']
         ingredients = drink_ingredients(drink)
         if  user_paid > drink_cost:
-            print(f"Your change is ${user_paid - drink_cost}.")
+            print(f"Your change is ${round(user_paid - drink_cost,2)}.")
             print(f"Here is your {drink}. Enjoy!")
             update_bank(drink_cost)
             update_resources(ingredients,drink)
