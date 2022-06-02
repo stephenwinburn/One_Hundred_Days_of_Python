@@ -60,7 +60,7 @@ def run_report():
 
 
 def select_drink():
-    drink = input("What would you like? (expresso/latte/cappuccino): ")
+    drink = input("What would you like? (espresso/latte/cappuccino): ")
     if drink == 'report':
         print(run_report())
     if drink == 'off':
@@ -115,6 +115,9 @@ def update_bank(drink_cost):
 
 
 
+# Here we could make this more flexible since dictonaries are order preserving.
+# We could cycle through keys. This would allow expanded ingrediants if our
+# drink menu added new items.
 def update_resources(ingredients,drink):
     resources['water'][0] -= ingredients[0]   
     resources['milk'][0] -= ingredients[1]
